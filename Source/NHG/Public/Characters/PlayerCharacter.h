@@ -21,6 +21,7 @@ class NHG_API APlayerCharacter : public ACharacterBase
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+	
 	public:
 	APlayerCharacter();
 

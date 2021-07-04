@@ -39,6 +39,7 @@ float ACharacterBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 
 	if(IsDead())
 	{
+		NotifyCharacterDeath();
 		if(OnCharacterDeath.IsBound())
 		{
 			OnCharacterDeath.Broadcast(this);
@@ -55,6 +56,9 @@ bool ACharacterBase::IsDead() const
 
 void ACharacterBase::SetHealth(const float NewHealth)
 {
+	if(IsDead())
+		return;
+	
 	const float OldHealth = CurrentHealth;
 	
 	CurrentHealth = NewHealth;
@@ -69,5 +73,7 @@ void ACharacterBase::SetHealth(const float NewHealth)
 	}
 	
 }
+
+ 
  
 

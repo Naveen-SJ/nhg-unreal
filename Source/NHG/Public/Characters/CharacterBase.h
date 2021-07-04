@@ -40,6 +40,9 @@ public:
 protected:
 	/** Sets the current health of the character. */
 	void SetHealth(const float NewHealth);
+	
+	UFUNCTION(BlueprintImplementableEvent, Category= Character)
+	void NotifyCharacterDeath();
  
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Attributes)
@@ -57,6 +60,13 @@ public:
 	/** Character health changed event */
 	UPROPERTY(BlueprintAssignable, Category= Character)
 	FHealthChangedSignature OnCharacterHealthChanged;
+
+
+	//-------------------------------------
+	// Combat system
+	//-------------------------------------
+protected:
+	TArray<ACharacterBase*> CharactersEngagedToAttack;
 	
 	
 
