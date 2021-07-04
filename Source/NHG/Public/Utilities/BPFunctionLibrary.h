@@ -16,6 +16,14 @@ class NHG_API UBPFunctionLibrary : public UBlueprintFunctionLibrary
 
 public:
 
+	/** Calculates launch velocity to reach target location.
+	 * @param StartLocation - Start location
+	 * @param TargetLocation - Target location to reach
+	 * @param Height - Center height of the arc.
+	 * @param Gravity - Gravity.
+	 * @param Velocity - Final calculated velocity.
+	 * @return Can reach target location.
+	 */
 	UFUNCTION(BlueprintCallable, Category= Math)
 	static bool CalculateLaunchVelocity(const FVector StartLocation, const FVector TargetLocation, const float Height, const float Gravity, FVector& Velocity);
 	

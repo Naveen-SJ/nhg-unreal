@@ -16,6 +16,7 @@ class NHG_API ACharacterBase : public ACharacter
 	GENERATED_BODY()
 
 public:
+	
 	/** Sets default values for this character's properties */
 	ACharacterBase();
 
@@ -38,13 +39,18 @@ public:
 	bool IsDead() const;
 
 protected:
-	/** Sets the current health of the character. */
-	void SetHealth(const float NewHealth);
 	
+	/** Sets the current health of the character.
+	 * @param NewHealth - New health value to assign.
+	 */
+	void SetHealth(const float NewHealth);
+
+	/** Event notifies when character dies. */
 	UFUNCTION(BlueprintImplementableEvent, Category= Character)
 	void NotifyCharacterDeath();
  
 protected:
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Attributes)
 	float MaxHealth;
 
@@ -60,13 +66,7 @@ public:
 	/** Character health changed event */
 	UPROPERTY(BlueprintAssignable, Category= Character)
 	FHealthChangedSignature OnCharacterHealthChanged;
-
-
-	//-------------------------------------
-	// Combat system
-	//-------------------------------------
-protected:
-	TArray<ACharacterBase*> CharactersEngagedToAttack;
+ 
 	
 	
 

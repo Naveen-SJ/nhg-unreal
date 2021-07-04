@@ -19,25 +19,6 @@ class NHG_API AAICharacter : public ACharacterBase
 {
 	GENERATED_BODY()
 
-public:
-
-	UFUNCTION(BlueprintCallable, Category= AI)
-	void SetEnemyTarget(ACharacterBase* Enemy);
-
-	UFUNCTION(BlueprintPure, Category= AI)
-	ACharacterBase* GetEnemyTarget() const;
-  
-
-public:
-
-	UPROPERTY(BlueprintAssignable, Category= AI)
-	FDetectedEnemy OnDetectedEnemy;
-private:
-
-	/** Target character to attack */
-	class ACharacterBase* TargetCharacter;
-
-	/** Can this AI attack target character */
-	bool bEngageInCombat;
+ 
 		
 };
